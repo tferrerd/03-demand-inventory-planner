@@ -2,9 +2,32 @@
 
 - **Application:** Demand forecasting
 - **Portfolio project:** 03 of 15
-- **Status:** Project brief defined. Dataset acquisition, ML, application and MLOps implementation have not started.
+- **Status:** Source-derived CSV data is committed. ML models, the application and MLOps remain to be implemented.
 
 Part of [Tomas Ferrer's DS/ML portfolio](https://tomasferrer.com/).
+
+## Committed CSV dataset
+
+**Dataset:** UCI Online Retail II
+
+**Coverage:** Complete workbook observations from all sheets, preserving sheet/source order and split into CSV files below GitHub's file-size limit.
+
+| CSV file | Rows |
+|---|---:|
+| [retail_sheet1_001.csv](data/raw/retail_sheet1_001.csv) | 100,000 |
+| [retail_sheet1_002.csv](data/raw/retail_sheet1_002.csv) | 100,000 |
+| [retail_sheet1_003.csv](data/raw/retail_sheet1_003.csv) | 100,000 |
+| [retail_sheet1_004.csv](data/raw/retail_sheet1_004.csv) | 100,000 |
+| [retail_sheet1_005.csv](data/raw/retail_sheet1_005.csv) | 100,000 |
+| [retail_sheet1_006.csv](data/raw/retail_sheet1_006.csv) | 25,461 |
+| [retail_sheet2_007.csv](data/raw/retail_sheet2_007.csv) | 100,000 |
+| [retail_sheet2_008.csv](data/raw/retail_sheet2_008.csv) | 100,000 |
+| [retail_sheet2_009.csv](data/raw/retail_sheet2_009.csv) | 100,000 |
+| [retail_sheet2_010.csv](data/raw/retail_sheet2_010.csv) | 100,000 |
+| [retail_sheet2_011.csv](data/raw/retail_sheet2_011.csv) | 100,000 |
+| [retail_sheet2_012.csv](data/raw/retail_sheet2_012.csv) | 41,910 |
+
+These are actual published observations or documented format conversions. See [source, license and limitations](data/DATASET.md) and [CSV schemas/checksums](data/csv-manifest.json).
 
 ## Project prompt
 
@@ -14,17 +37,15 @@ Build an end-to-end demand forecasting application that turns a published online
 
 **Decision:** How much inventory should an operator order, given uncertain demand and asymmetric shortage costs?
 
-**Application to build:** Select a store and product, inspect forecast intervals, change lead time and inventory costs, and compare suggested replenishment policies.
+**Application to build:** Select a product and country/cohort, inspect forecast intervals, change lead time and inventory costs, and compare suggested replenishment policies.
 
 Write a short project charter defining the user, current baseline, primary business KPI, guardrails, prediction time, and measurable success criteria before selecting a model. Explain which decision the model changes and the costs of incorrect decisions.
 
 ### Published dataset and raw data
 
-A bounded subset of the [M5 forecasting dataset](https://www.kaggle.com/competitions/m5-forecasting-accuracy/overview). Inventory positions, supplier lead times, and inventory economics are simulated inputs, not observed outcomes in the sales benchmark.
+The committed source is **UCI Online Retail II**. Complete workbook observations from all sheets, preserving sheet/source order and split into CSV files below GitHub's file-size limit. See [dataset documentation](data/DATASET.md) for original links, attribution, usage terms and limitations.
 
-**Additional source/access notes:** Kaggle account/rules may be required. Start with a reproducible bounded subset. Sales are observed; inventory/lead-time scenarios are added assumptions
-
-Acquire a pinned source release into `data/raw/` and preserve the original bytes. Add a repeatable acquisition script and a manifest containing source URL, release/version, retrieval time, citation, terms, file sizes and SHA-256 checksums. Keep cleaned data in `data/interim/` and model-ready features/split assignments in `data/processed/`. Raw data stay out of Git unless redistribution is explicitly appropriate.
+Acquire a pinned source release into `data/raw/` and preserve the original bytes. Add a repeatable acquisition script and a manifest containing source URL, release/version, retrieval time, citation, terms, file sizes and SHA-256 checksums. Keep cleaned data in `data/interim/` and model-ready features/split assignments in `data/processed/`. Redistributable CSV exports and the documented supporting assets are committed; large source archives remain excluded from Git.
 
 Audit labels, decision-time feature availability, duplicates, missingness, class balance, and temporal/group structure. If the candidate cannot support the task or intended use, find another suitable published dataset or narrow the question. Generated fixtures and economic scenarios are supplementary, clearly labeled artifacts.
 
@@ -77,7 +98,7 @@ Use the smallest architecture that completes this lifecycle. Select real-time or
 
 ## Completion checklist
 
-- [ ] Published source acquired, checksum verified and provenance/profile recorded.
+- [x] Published source acquired, checksum verified and provenance/profile recorded.
 - [ ] Data audit, project charter, success criteria and evaluation protocol complete.
 - [ ] Baseline and trained ML component evaluated; artifacts and failure analysis saved.
 - [ ] Working application deployed with the exact evaluated model version.
@@ -86,4 +107,4 @@ Use the smallest architecture that completes this lifecycle. Select real-time or
 
 ## Current implementation
 
-This repository currently contains the implementation brief and Git exclusions. The dataset links identify starting sources; acquisition and model results will be documented as implementation proceeds.
+Published dataset observations, CSV exports, supporting assets where applicable, and provenance/checksum documentation are present. Models, application functionality and MLOps have not been implemented or evaluated yet.
