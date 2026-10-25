@@ -1,0 +1,11 @@
+{
+  "version": "uk-weekly-sales-v1",
+  "country": "United Kingdom",
+  "development_start": "2011-06-06",
+  "test_start": "2011-09-05",
+  "horizon_weeks": 4,
+  "minimum_history_weeks": 26,
+  "minimum_active_training_weeks": 13,
+  "maximum_products": 50,
+  "product_code_pattern": "[0-9]{5}[A-Za-z]*"
+}

@@ -1,0 +1,571 @@
+{
+  "raw_rows": 1067371,
+  "reconciled_rows": 1044848,
+  "missing_by_column": {
+    "Invoice": 0,
+    "StockCode": 0,
+    "Description": 4382,
+    "Quantity": 0,
+    "InvoiceDate": 0,
+    "Price": 0,
+    "Customer ID": 243007,
+    "Country": 0
+  },
+  "first_timestamp": "2009-12-01 07:45:00",
+  "last_timestamp": "2011-12-09 12:50:00",
+  "sheets": {
+    "1": {
+      "rows": 525461,
+      "start": "2009-12-01 07:45:00",
+      "end": "2010-12-09 20:01:00",
+      "exact_repeats_beyond_first": 6865
+    },
+    "2": {
+      "rows": 541910,
+      "start": "2010-12-01 08:26:00",
+      "end": "2011-12-09 12:50:00",
+      "exact_repeats_beyond_first": 5268
+    }
+  },
+  "overlap": {
+    "removed_earlier_sheet_rows": 22523,
+    "dates": [
+      "2010-12-01",
+      "2010-12-02",
+      "2010-12-03",
+      "2010-12-05",
+      "2010-12-06",
+      "2010-12-07",
+      "2010-12-08",
+      "2010-12-09"
+    ],
+    "removed_rows_with_exact_later_sheet_match": 22523
+  },
+  "raw_exact_repeats_beyond_first": 34335,
+  "retained_exact_repeats_beyond_first": 11812,
+  "reconciled_cancellations": 19165,
+  "reconciled_nonpositive_quantity": 22557,
+  "reconciled_nonpositive_price": 6029,
+  "excluded_code_rows": {
+    "POST": 2086,
+    "DOT": 1425,
+    "M": 1398,
+    "C2": 277,
+    "D": 173,
+    "S": 102,
+    "BANK CHARGES": 100,
+    "ADJUST": 67,
+    "AMAZONFEE": 36,
+    "DCGS0058": 31,
+    "gift_0001_20": 29,
+    "gift_0001_30": 29,
+    "DCGSSGIRL": 25,
+    "DCGSSBOY": 23,
+    "PADS": 19,
+    "gift_0001_10": 16,
+    "CRUK": 16,
+    "TEST001": 15,
+    "DCGS0076": 14,
+    "DCGS0003": 14,
+    "gift_0001_50": 8,
+    "gift_0001_40": 7,
+    "DCGS0069": 6,
+    "B": 6,
+    "DCGS0004": 5,
+    "m": 5,
+    "DCGS0066N": 4,
+    "DCGS0072": 4,
+    "gift_0001_80": 4,
+    "ADJUST2": 3,
+    "DCGS0070": 3,
+    "gift_0001_70": 3,
+    "SP1002": 3,
+    "DCGS0068": 3,
+    "DCGS0037": 2,
+    "TEST002": 2,
+    "DCGS0062": 2,
+    "gift_0001_90": 2,
+    "gift_0001_60": 2,
+    "GIFT": 1,
+    "DCGS0067": 1,
+    "DCGS0066P": 1,
+    "DCGS0071": 1,
+    "DCGS0073": 1,
+    "DCGS0057": 1,
+    "DCGS0074": 1,
+    "DCGS0055": 1,
+    "DCGS0044": 1,
+    "C3": 1,
+    "47503J ": 1,
+    "DCGSLBOY": 1,
+    "DCGS0041": 1,
+    "DCGS0006": 1,
+    "DCGS0075": 1,
+    "DCGS0016": 1,
+    "DCGS0027": 1,
+    "DCGS0039": 1,
+    "DCGSLGIRL": 1,
+    "DCGS0060": 1,
+    "DCGS0056": 1,
+    "DCGS0059": 1,
+    "DCGS0053": 1,
+    "DCGS0036": 1
+  },
+  "countries": {
+    "United Kingdom": 959983,
+    "EIRE": 17689,
+    "Germany": 17363,
+    "France": 14059,
+    "Netherlands": 5138,
+    "Spain": 3766,
+    "Switzerland": 3183,
+    "Belgium": 3111,
+    "Portugal": 2540,
+    "Australia": 1891,
+    "Channel Islands": 1647,
+    "Italy": 1509,
+    "Sweden": 1364,
+    "Norway": 1308,
+    "Cyprus": 1176,
+    "Finland": 1049,
+    "Austria": 938,
+    "Denmark": 797,
+    "Unspecified": 756,
+    "Greece": 663,
+    "Japan": 565,
+    "USA": 535,
+    "Poland": 527,
+    "United Arab Emirates": 500,
+    "Israel": 371,
+    "Hong Kong": 364,
+    "Singapore": 346,
+    "Malta": 299,
+    "Canada": 228,
+    "Iceland": 222,
+    "RSA": 169,
+    "Lithuania": 154,
+    "Bahrain": 126,
+    "Brazil": 94,
+    "Thailand": 76,
+    "Korea": 63,
+    "European Community": 61,
+    "Lebanon": 58,
+    "West Indies": 54,
+    "Bermuda": 34,
+    "Nigeria": 32,
+    "Czech Republic": 30,
+    "Saudi Arabia": 10
+  },
+  "complete_weeks_start": "2009-12-07",
+  "complete_weeks_end": "2011-12-04",
+  "filtered_sales_rows_complete_weeks": 905162,
+  "filtered_sales_units": 8850606,
+  "sales_missing_customer_id": 214722,
+  "sales_repeat_units_sensitivity": 32224,
+  "selected_products": 50,
+  "panel_rows": 5097,
+  "panel_zero_fraction": 0.06827545615067687,
+  "selected_training_unit_share": 0.2192628955975866,
+  "panel_rows_by_split": {
+    "train": 3797,
+    "development": 650,
+    "test": 650
+  },
+  "origins_by_split": {
+    "development": 10,
+    "test": 10
+  },
+  "selected_product_training_statistics": [
+    {
+      "StockCode": "84077",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 75,
+      "training_units": 74510,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "85123A",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 70501,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "85099B",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 60340,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21212",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 58149,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "17003",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 70,
+      "training_units": 58039,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "84879",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 51682,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "22197",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 46291,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21977",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 36152,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "84991",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 34235,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "15036",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 74,
+      "training_units": 30280,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "84755",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 29674,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21982",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 66,
+      "training_units": 28761,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21232",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 28752,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21213",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 27531,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "22178",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 27146,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "85099F",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 75,
+      "training_units": 25444,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "22616",
+      "first_training_week": "2010-05-03T00:00:00.000",
+      "active_training_weeks": 56,
+      "training_units": 25236,
+      "history_weeks": 57
+    },
+    {
+      "StockCode": "84568",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 67,
+      "training_units": 24900,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "84946",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 24574,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "71459",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 75,
+      "training_units": 24220,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "20725",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 23475,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "22386",
+      "first_training_week": "2010-01-25T00:00:00.000",
+      "active_training_weeks": 70,
+      "training_units": 23146,
+      "history_weeks": 71
+    },
+    {
+      "StockCode": "16014",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 40,
+      "training_units": 22320,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "84347",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 50,
+      "training_units": 22301,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "85099C",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 22239,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "84992",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 21944,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "84270",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 50,
+      "training_units": 21732,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21980",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 75,
+      "training_units": 21482,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21080",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 20483,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21985",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 19726,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "84970S",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 19721,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21931",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 19390,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "22355",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 19139,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "22469",
+      "first_training_week": "2010-04-19T00:00:00.000",
+      "active_training_weeks": 51,
+      "training_units": 18837,
+      "history_weeks": 59
+    },
+    {
+      "StockCode": "21915",
+      "first_training_week": "2010-03-15T00:00:00.000",
+      "active_training_weeks": 63,
+      "training_units": 18524,
+      "history_weeks": 64
+    },
+    {
+      "StockCode": "21498",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 75,
+      "training_units": 18426,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "22411",
+      "first_training_week": "2010-01-25T00:00:00.000",
+      "active_training_weeks": 70,
+      "training_units": 18178,
+      "history_weeks": 71
+    },
+    {
+      "StockCode": "22492",
+      "first_training_week": "2010-05-03T00:00:00.000",
+      "active_training_weeks": 56,
+      "training_units": 18160,
+      "history_weeks": 57
+    },
+    {
+      "StockCode": "22151",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 18030,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21975",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 18001,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21929",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 71,
+      "training_units": 17902,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21984",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 72,
+      "training_units": 17793,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "47566",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 75,
+      "training_units": 17697,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "22423",
+      "first_training_week": "2010-03-15T00:00:00.000",
+      "active_training_weeks": 63,
+      "training_units": 17531,
+      "history_weeks": 64
+    },
+    {
+      "StockCode": "21928",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 74,
+      "training_units": 17367,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "84212",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 65,
+      "training_units": 17201,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "21981",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 64,
+      "training_units": 17063,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "84598",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 64,
+      "training_units": 16873,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "20727",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 76,
+      "training_units": 16872,
+      "history_weeks": 78
+    },
+    {
+      "StockCode": "22086",
+      "first_training_week": "2009-12-07T00:00:00.000",
+      "active_training_weeks": 55,
+      "training_units": 16009,
+      "history_weeks": 78
+    }
+  ],
+  "config": {
+    "version": "uk-weekly-sales-v1",
+    "country": "United Kingdom",
+    "development_start": "2011-06-06",
+    "test_start": "2011-09-05",
+    "horizon_weeks": 4,
+    "minimum_history_weeks": 26,
+    "minimum_active_training_weeks": 13,
+    "maximum_products": 50,
+    "product_code_pattern": "[0-9]{5}[A-Za-z]*"
+  },
+  "runtime": {
+    "python": "3.9.6",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3"
+  },
+  "lineage": {
+    "sources": {
+      "data/raw/retail_sheet1_001.csv": "81dc108cd7ba1a86ce3f5a817cc2bbf6101ee399f70fb5cf63a872c017c74d1b",
+      "data/raw/retail_sheet1_002.csv": "5f83d00a678082422b47d3f10d568fc08ee603da4e12c46ecde1b87e675addb3",
+      "data/raw/retail_sheet1_003.csv": "158a9ddc71f296e81ce167042c33b702306772de6f839cc2a96e3e26df31a84f",
+      "data/raw/retail_sheet1_004.csv": "b45f7e73996e4510626301e631d578eb9a8b1f46f79f7221b919e0df93cdb0b5",
+      "data/raw/retail_sheet1_005.csv": "911ab39de97999e42e8d94df2639455497b3234ba7e56fbb3d52e2ca6bc3e992",
+      "data/raw/retail_sheet1_006.csv": "3123f89cd8e79679622fa55a07851b42d5b92b7e647264ef3112c85ed0960c0a",
+      "data/raw/retail_sheet2_007.csv": "365ffe80839b58df4c47c279cf25bd6738a4d037245ec541f14db33abe54d343",
+      "data/raw/retail_sheet2_008.csv": "d7a5bce8ce38e4b116cf3619e18018f4b2f9d7f6723e2a166be9af7e6061403a",
+      "data/raw/retail_sheet2_009.csv": "c1f89579b6740d97e01ed7b3babbe6ff2538eb6f4c9b1644448f7a0e95c070c7",
+      "data/raw/retail_sheet2_010.csv": "1d29d11031e1b61034c9ce8570b6cd3eb9138eb30bfe8ec8d142ef836e5cbefb",
+      "data/raw/retail_sheet2_011.csv": "d50c6b3faff948db502e52bb6cd16ea530bcfa3c93f1f802d319b36146f1c73d",
+      "data/raw/retail_sheet2_012.csv": "e7e6c72d08c9942d3ab18f540f2bf1f13d1d87e53d8a4917e5105587ec0fc7f1"
+    },
+    "manifest_sha256": "4ffb0ec844b9b39d0676528e1b70ba8fa782441bb1ba6a1c8f63610819355ba6",
+    "config_sha256": "c562d550124b5546b07ff18ac9c07e3f19f6d66222231864164a883910decce7",
+    "audit_code_sha256": "fe6537060ca7a93c852a2f33b2c1f378abbe7f27f6b6a6a1ebcf9c676ed747d1"
+  },
+  "generated_sha256": {
+    "data/interim/uk-sales.csv": "79c839a1fa31c7b7791115f4297cb3397c09ef50ec26ebccb58545af43e58baa",
+    "data/processed/weekly-sales.csv": "ab1267023dac527d99de9a58f5ed959db8a30f423fa0d28913dbb35d1e25b860",
+    "data/processed/selected-products.csv": "5e5d88de389139688663b210ad991b06cde402352db9e0079cbec7b63e0524a1",
+    "data/processed/forecast-origins.csv": "db26ac19e3b9e2834f79d7d4c26446af2c55179e6aa69baaf7bdc309b9fd7765"
+  }
+}

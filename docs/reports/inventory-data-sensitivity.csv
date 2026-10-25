@@ -1,0 +1,4 @@
+variant,source_lines_affected,recorded_units_removed_or_capped,remaining_recorded_units_before_test
+original,0,0,1547896
+drop_exact_repeats,682,5136,1542760
+cap_1000_units,98,127860,1420036

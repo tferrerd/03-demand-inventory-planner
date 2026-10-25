@@ -2,9 +2,78 @@
 
 - **Application:** Demand forecasting
 - **Portfolio project:** 03 of 15
-- **Status:** Source-derived CSV data is committed. ML models, the application and MLOps remain to be implemented.
+- **Status:** Data audit, development forecasting, cumulative uncertainty calibration and simulated inventory-policy comparisons are implemented. Tail calibration needs improvement; final evaluation, the application and MLOps remain outstanding.
 
 Part of [Tomas Ferrer's DS/ML portfolio](https://tomasferrer.com/).
+
+## Start here
+
+The first milestone (2026-10-21) establishes a recorded-sales forecasting benchmark before model fitting:
+
+- [Exploration notebook](notebooks/01-exploration.ipynb): original transaction rows, field meanings, exceptional-record examples and a worked invoice-line-to-weekly-sales calculation; then source overlap, missing fields, product scope, intermittency and temporal evaluation windows.
+- [Forecasting methods notebook](notebooks/02-forecasting-methods.ipynb): paired development backtests of last-week, moving-average, seasonal-naive, Prophet and pooled lag-feature forecasts. Select `.venv/bin/python` as the kernel after installing requirements. Includes leakage checks, horizon/product diagnostics and saved predictions; final evaluation and calibrated inventory policies remain separate.
+- [Inventory decisions notebook](notebooks/03-inventory-decisions.ipynb): completed-window cumulative calibration, forecast-range coverage, point-versus-quantile ordering, six cost/inventory scenarios, paired origin-block intervals and duplicate/bulk-order sensitivities. Run after notebook 02; no final-test forecasts or promotion.
+- [Project charter](docs/project-charter.md): operator, ordering decision, simulated cost KPI and success criteria.
+- [Evaluation plan](docs/evaluation-plan.md): seasonal-naive baseline, lag-feature candidate, historical interval calibration, rolling-origin evaluation and promotion gates.
+- [Data audit](docs/reports/01-data-audit.md) and [machine-readable evidence](docs/reports/data-audit.json).
+- [Configuration](config.json) and [operating record](docs/operating-record.md).
+
+### Reproduce the first milestone
+
+Python 3.9 or later; the recorded run used Python 3.9.6. From this repository:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python scripts/audit.py
+python -m unittest discover -s tests -v
+```
+
+Open `notebooks/01-exploration.ipynb` and run all cells after the audit. To execute it without the notebook UI:
+
+```bash
+python - <<'PY'
+from pathlib import Path
+import nbformat
+from nbclient import NotebookClient
+path = Path("notebooks/01-exploration.ipynb")
+notebook = nbformat.read(path, as_version=4)
+NotebookClient(notebook, timeout=180, kernel_name="python3").execute()
+nbformat.write(notebook, path)
+PY
+```
+
+The audit checks SHA-256, sizes, row counts, schema and required values for all 12 committed CSVs. It regenerates `data/interim/uk-sales.csv`, `data/processed/weekly-sales.csv`, `selected-products.csv` and `forecast-origins.csv`; these derived CSVs are excluded from Git. The interim sales file preserves source-file and zero-based CSV-data-row references. Reports record runtime versions and source/config/code/output hashes. Reproduction currently begins with committed exports; original-workbook acquisition and re-extraction remain outstanding.
+
+Actual findings: **1,067,371 raw rows**, with **22,523 earlier-sheet rows removed** from overlapping December 2010 dates. Retain 11,812 exact repeated rows after sheet reconciliation pending sensitivity analysis. The full-week UK positive-sales scope contains 905,162 lines and 8,850,606 units. Training-only eligibility/ranking selects **50 products**, representing 21.93% of eligible training units. Their **5,097 product-weeks** contain 6.83% zeros; 3,797 rows are training and 650 each are development and test. There are ten four-week origins in each evaluation partition.
+
+These are recorded sales, not unconstrained demand. Returns and non-product adjustments are excluded from the positive-sales target; missing customer IDs are retained. Zero-sales weeks do not identify stockouts or available inventory. Initial development forecast accuracy is recorded below; no final-test performance, real savings or production operation has been measured. Inventory costs and lead times will be explicit scenario assumptions.
+
+### Initial forecasting experiments — 2026-10-24
+
+Notebook 02 compares six methods on the same 50 products, ten development origins and four weekly horizons (2,000 targets per method). Mean absolute scaled error (MASE; lower is better):
+
+| Method | Development MASE |
+|---|---:|
+| Lag boosting, 7 leaves | 0.6622 |
+| Lag boosting, 15 leaves | 0.6635 |
+| Four-week moving average | 0.6643 |
+| Prophet | 0.7296 |
+| Last week | 0.7964 |
+| Annual seasonal naive | 1.0710 |
+
+The best boosted model improves MASE only about **0.3% over the moving average**, which has slightly lower unit MAE. Prophet does not lead this comparison. Overlapping windows and development selection prevent a confirmatory superiority claim. Cumulative error also changes the model ranking. See the [experiment report](docs/reports/02-forecasting-methods.md), [metrics](docs/reports/forecasting-development-metrics.csv) and [run lineage](docs/reports/forecasting-development.json). Leakage checks and paired-population assertions pass. Interval calibration, inventory costs, robustness, final evaluation and promotion remain outstanding.
+
+Use the project virtual environment as the notebook kernel. Prophet 1.1.7 and its compatible CmdStanPy 1.2.5 backend are pinned in requirements for the recorded Python 3.9 run. Notebook 02 saves development predictions, per-product errors and fit diagnostics under `data/processed/`; compact method/horizon/origin summaries are saved under `docs/reports/`.
+
+### Uncertainty and hypothetical inventory decisions — 2026-10-25
+
+Notebook 03 replays both the moving average and seven-leaf model at 49 historical origins for the fixed product universe, calibrating each development forecast only on completed prior four-week windows. It compares 500 product-origins per method across three sales definitions and saves 36,000 hypothetical orders plus 78,000 exact calibration-membership links.
+
+On original sales, nominal 80% cumulative ranges cover 80.2% of outcomes for the moving average and 79.8% for boosting. Nominal 95% ranges cover only 87.8% and 88.4%; **tail calibration needs work**. Under the Cu=4, Co=1, zero-inventory scenario, boosted quantile ordering averages 1,093.99 arbitrary cost units per decision versus 1,230.78 for mean quantile ordering (11.1% lower). The paired origin-block interval for their cost difference is [-193.22, +2.17], including no improvement. This is post-selection development simulation with ten overlapping origins, not dependable savings or production evidence.
+
+Both methods are refitted/recalibrated after exact-repeat removal and under a labeled counterfactual 1,000-unit invoice-line cap. The order is assumed available before an independent four-week window; supplier delays and ongoing inventory are not simulated. See the [inventory report](docs/reports/03-inventory-decisions.md), [coverage metrics](docs/reports/inventory-interval-metrics.csv), [policy metrics](docs/reports/inventory-policy-metrics.csv) and [paired comparisons](docs/reports/inventory-paired-comparisons.csv). Full replay artifacts are regenerable in `data/processed/`. Calibration/ordering regression checks run with the existing unittest command.
 
 ## Committed CSV dataset
 
@@ -99,7 +168,7 @@ Use the smallest architecture that completes this lifecycle. Select real-time or
 ## Completion checklist
 
 - [x] Published source acquired, checksum verified and provenance/profile recorded.
-- [ ] Data audit, project charter, success criteria and evaluation protocol complete.
+- [x] Data audit, project charter, success criteria and evaluation protocol complete.
 - [ ] Baseline and trained ML component evaluated; artifacts and failure analysis saved.
 - [ ] Working application deployed with the exact evaluated model version.
 - [ ] Tracking, registry, CI/CD, monitoring, retraining and rollback demonstrated.
@@ -107,4 +176,4 @@ Use the smallest architecture that completes this lifecycle. Select real-time or
 
 ## Current implementation
 
-Published dataset observations, CSV exports, supporting assets where applicable, and provenance/checksum documentation are present. Models, application functionality and MLOps have not been implemented or evaluated yet.
+Published observations and provenance/checksum documentation are present. The checked audit, sheet-overlap reconciliation, training-only product selection, complete-week panel, rolling origins, exploration notebook and pre-model protocol are implemented. Notebook 02 fits Prophet and pooled lag-feature candidates and compares development point forecasts with three simple baselines. Notebook 03 implements completed-window cumulative calibration, inventory-policy scenarios and duplicate/bulk-order sensitivities. Tail calibration improvements, full promotion gates, final evaluation, original-workbook acquisition, application functionality and MLOps remain outstanding.
